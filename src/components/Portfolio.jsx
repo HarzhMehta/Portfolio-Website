@@ -42,7 +42,7 @@ export const Portfolio = () => {
             id: 5,
             src: portfolio, // Replace with your image path
             title: 'Portfolio Website',
-            link: 'https://link-to-your-project4.com'
+            link: 'https://portfolio-website-steel-psi-87.vercel.app/'
         },
         {
             id: 6,
