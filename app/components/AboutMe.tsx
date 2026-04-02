@@ -26,7 +26,7 @@ export default function AboutMe() {
               Beyond just learning, I enjoy applying my knowledge to solve problems and continuously push my boundaries. I contribute to open-source projects regularly, collaborating with developers worldwide.
             </p><br></br>
             <p className="text-lg text-gray-300 leading-relaxed">
-              I can also jam Wi-Fi signals or crack passwords without connecting to your network. 😉
+              I can also jam Wi-Fi signals or crack passwords without connecting to your network 😉
             </p> <br></br>
             <div className="pt-4 border-t-2 border-white/20">
               <p className="text-md text-white font-bold">

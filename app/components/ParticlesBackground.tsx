@@ -83,6 +83,7 @@ export default function ParticlesBackground() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  
   if (!init) return null;
 
   return (
