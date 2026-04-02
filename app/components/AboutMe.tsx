@@ -18,14 +18,16 @@ export default function AboutMe() {
           {/* Bio text */}
           <div className="space-y-6 neo-card bg-black/40 backdrop-blur-sm p-8">
             <p className="text-lg text-gray-300 leading-relaxed">
-              I&apos;m driven by curiosity and a deep appreciation for the beauty in complexity. I love understanding how things work, which has led me to explore diverse fields and take on challenging projects, including building real-world solutions.
-            </p>
+              I&apos;m driven by curiosity and a deep appreciation for the beauty in complexity. </p>
+              <br></br>
+              <p>I love understanding how things work, which has led me to explore diverse fields and take on challenging projects, including building real-world solutions.
+            </p> <br></br>
             <p className="text-lg text-gray-300 leading-relaxed">
               Beyond just learning, I enjoy applying my knowledge to solve problems and continuously push my boundaries. I contribute to open-source projects regularly, collaborating with developers worldwide.
-            </p>
+            </p><br></br>
             <p className="text-lg text-gray-300 leading-relaxed">
-              I can also jam Wi-Fi signals or crack passwords without connecting to your network.
-            </p>
+              I can also jam Wi-Fi signals or crack passwords without connecting to your network. 😉
+            </p> <br></br>
             <div className="pt-4 border-t-2 border-white/20">
               <p className="text-md text-white font-bold">
                 Vishwakarma Institute of Technology, Pune

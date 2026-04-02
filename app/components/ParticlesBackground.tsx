@@ -66,7 +66,7 @@ function buildOptions(scale: number): ISourceOptions {
       scale: scale,
       type: "inline",
       url: "/assets/idea-svgrepo-com.svg", // Ensure this SVG exists in public/assets
-      position: { x: 50, y: 50 },
+      position: { x: 48, y: 50 },
     },
   };
 }

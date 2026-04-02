@@ -116,9 +116,9 @@ export default function Contact() {
             Built with{" "}
             <span className="text-[#DDFF00]">Next.js</span> +{" "}
             <span className="text-[#00FFFF]">tsParticles</span> +{" "}
-            <span className="text-[#FF00FF]">Neobrutalism</span>
+            <span className="text-[#FF00FF]">Neobrutalism Theme `-__-' </span>
           </p>
-          <p className="mt-1">© {new Date().getFullYear()} Harsh Mehta</p>
+          
         </div>
       </div>
     </section>

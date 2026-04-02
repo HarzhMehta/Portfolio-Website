@@ -25,12 +25,12 @@ export default function Home() {
 
       {/* Scrollable content */}
       <main className="relative z-10">
-        <Hero />
-        <AboutMe />
-        <Experience />
-        <PortfolioSection />
-        <Achievements />
-        <Contact />
+        <Hero /><br></br>
+        <AboutMe /> <br></br>
+        <Experience /> <br></br>
+        <PortfolioSection /> <br></br>
+        <Achievements /><br></br>
+        <Contact /><br></br>
       </main>
     </>
   );
