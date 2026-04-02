@@ -46,7 +46,7 @@ function buildOptions(scale: number): ISourceOptions {
         outModes: { default: "bounce" },
         speed: 1.5,
       },
-      number: { value: 150 },
+      number: { value: Math.floor(scale * 250) },
       opacity: {
         value: { min: 0.1, max: 0.6 },
         animation: { enable: true, speed: 2, sync: false },
