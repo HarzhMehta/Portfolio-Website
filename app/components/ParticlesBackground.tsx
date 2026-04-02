@@ -49,7 +49,7 @@ function buildOptions(scale: number): ISourceOptions {
       number: { value: Math.floor(scale * 250) },
       opacity: {
         value: { min: 0.1, max: 0.6 },
-        animation: { enable: true, speed: 2, sync: false },
+        animation: { enable: true, speed: 1.5, sync: false },
       },
       shape: { type: "circle" },
       size: { value: 1 },
@@ -66,7 +66,7 @@ function buildOptions(scale: number): ISourceOptions {
       scale: scale,
       type: "inline",
       url: "/assets/idea-svgrepo-com.svg", // Ensure this SVG exists in public/assets
-      position: { x: 48, y: 50 },
+      position: { x: 48, y: 40 },
     },
   };
 }

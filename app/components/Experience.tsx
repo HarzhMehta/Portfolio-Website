@@ -123,14 +123,14 @@ const TIMELINE = [
 export default function Experience() {
   return (
     <section id="skills" className="relative px-6">
-      <div className="max-w-6xl mx-auto space-y-28">
-
+      <div className="max-w-6xl mx-auto flex flex-col gap-32 md:gap-40">
+    
         {/* ── Tech Stack ── */}
         <div>
           <div className="mb-12">
             <div className="inline-block neo-border bg-[#DDFF00] text-black px-4 py-1 text-sm font-black uppercase tracking-widest mb-4">
               02
-            </div>
+            </div> <br></br>
             <h2 className="text-4xl md:text-6xl font-black">
               Tech Stack<span className="text-[#DDFF00]">.</span>
             </h2>
@@ -169,8 +169,8 @@ export default function Experience() {
         </div>
 
         {/* ── Experience Timeline ── */}
-        <div className="pt-10">
-          <div className="mb-24">
+        <div className="pt-16">
+          <div className="mb-16">
             <div className="inline-block neo-border bg-[#00FFFF] text-black px-4 py-1 text-sm font-black uppercase tracking-widest mb-4">
               03
             </div>
@@ -181,39 +181,39 @@ export default function Experience() {
 
           {/* Timeline */}
           <div className="relative">
-            {/* Center vertical line — desktop only */}
-            <div className="absolute left-1/2 top-4 bottom-12 w-px bg-white/10 hidden md:block -translate-x-1/2" />
+            {/* Center vertical line — desktop, left on mobile */}
+            <div className="absolute left-5 md:left-1/2 top-4 bottom-12 w-px bg-white/10 md:-translate-x-1/2" />
 
             <div className="space-y-12 md:space-y-24">
               {TIMELINE.map((item, i) => (
-                <div key={i} className="relative flex items-start mb-16">
-                  {/* Left slot */}
+                <div key={i} className="relative flex items-start mb-16 md:justify-between">
+                  {/* Left slot (Desktop only) */}
                   <div className="hidden md:flex flex-1 justify-end pr-16 pt-4">
                     {item.side === "left" && <TimelineCard item={item} />}
                   </div>
 
-                  {/* Center dot */}
-                  <div className="hidden md:flex flex-col items-center z-10 relative shrink-0">
+                  {/* Center dot (Left on Mobile) */}
+                  <div className="flex flex-col items-center z-10 relative shrink-0 w-10 md:w-auto">
                     <div
                       className="w-6 h-6 rounded-full border-4 border-black mt-6 shadow-xl transition-transform hover:scale-125"
                       style={{ backgroundColor: item.color, boxShadow: `0 0 20px 2px ${item.color}88` }}
                     />
                     {i < TIMELINE.length - 1 && (
                       <div
-                        className="w-px flex-1 min-h-24"
+                        className="w-px flex-1 min-h-24 md:min-h-24"
                         style={{ background: `linear-gradient(to bottom, ${item.color}55, ${TIMELINE[i + 1].color}22)` }}
                       />
                     )}
                   </div>
 
-                  {/* Right slot */}
-                  <div className="hidden md:flex flex-1 pl-16 pt-4">
-                    {item.side === "right" && <TimelineCard item={item} />}
-                  </div>
-
-                  {/* Mobile: always render */}
-                  <div className="md:hidden w-full">
-                    <TimelineCard item={item} />
+                  {/* Right slot (Desktop) & Main slot (Mobile) */}
+                  <div className="flex-1 min-w-0 pl-4 md:pl-16 pt-4">
+                    <div className="md:hidden">
+                      <TimelineCard item={item} />
+                    </div>
+                    <div className="hidden md:block">
+                      {item.side === "right" && <TimelineCard item={item} />}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -229,7 +229,7 @@ export default function Experience() {
 function TimelineCard({ item }: { item: (typeof TIMELINE)[0] }) {
   return (
     <div
-      className="w-full max-w-md neo-card bg-black/40 backdrop-blur-md p-8 md:p-10 group transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+      className="w-full min-w-0 md:max-w-md neo-card bg-black/40 backdrop-blur-md p-8 md:p-10 group transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
       style={{ borderLeftColor: item.color, borderLeftWidth: "6px" }}
     >
       <div className="flex flex-col gap-2 mb-6">

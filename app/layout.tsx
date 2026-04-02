@@ -12,14 +12,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css"
         />
       </head>
-      <body className="bg-black text-white">{children}</body>
+      <body className="bg-black text-white" suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }

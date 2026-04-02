@@ -13,21 +13,22 @@ export default function AboutMe() {
             About Me<span className="text-[#00FFFF]">.</span>
           </h2>
         </div>
-
+<br></br>
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Bio text */}
           <div className="space-y-6 neo-card bg-black/40 backdrop-blur-sm p-8">
             <p className="text-lg text-gray-300 leading-relaxed">
-              I&apos;m driven by curiosity and a deep appreciation for the beauty in complexity. </p>
-              <br></br>
-              <p>I love understanding how things work, which has led me to explore diverse fields and take on challenging projects, including building real-world solutions.
-            </p> <br></br>
+              I&apos;m driven by curiosity and a deep appreciation for the beauty in complexity.
+            </p><br></br>
+            <p className="text-lg text-gray-300 leading-relaxed">
+              I love understanding how things work, which has led me to explore diverse fields and take on challenging projects, including building real-world solutions.
+            </p><br></br>
             <p className="text-lg text-gray-300 leading-relaxed">
               Beyond just learning, I enjoy applying my knowledge to solve problems and continuously push my boundaries. I contribute to open-source projects regularly, collaborating with developers worldwide.
             </p><br></br>
-            <p className="text-lg text-gray-300 leading-relaxed">
+            <p className="text-lg text-gray-300 leading-relaxed pb-4">
               I can also jam Wi-Fi signals or crack passwords without connecting to your network 😉
-            </p> <br></br>
+            </p><br></br>
             <div className="pt-4 border-t-2 border-white/20">
               <p className="text-md text-white font-bold">
                 Vishwakarma Institute of Technology, Pune
@@ -38,12 +39,12 @@ export default function AboutMe() {
             </div>
           </div>
 
-          {/* Quick stats */}<br></br>
-          <div className="grid grid-cols-2 gap-4">
+          {/* Quick stats */}
+          <div className="grid grid-cols-2 gap-4 pt-10 md:pt-0">
             {[
-              { number: "6+", label: "Projects Built", color: "#DDFF00" },
+              { number: "500+", label: "DSA Ques Solved", color: "#DDFF00" },
               { number: "3+", label: "Tech Domains", color: "#00FFFF" },
-              { number: "IEEE", label: "Web Developer", color: "#FF00FF" },
+              { number: "IEEE", label: "Project Head", color: "#FF00FF" },
               { number: "∞", label: "Curiosity", color: "#39FF14" },
             ].map(({ number, label, color }) => (
               <div key={label} className="neo-card bg-black/60 p-6 text-center">

@@ -38,15 +38,15 @@ export default function Hero() {
         </div>
 
         {/* Right — Terminal card */}
-        <div className="hidden md:flex justify-center">
-          <div className="neo-card bg-black/60 p-8 w-85 space-y-4">
+        <div className="flex justify-center">
+          <div className="neo-card bg-black/60 p-6 md:p-8 w-full max-w-md space-y-4">
             <div className="flex items-center gap-2 text-xs font-mono text-gray-400">
               <span className="w-3 h-3 rounded-full bg-[#FF5F57] inline-block"></span>
               <span className="w-3 h-3 rounded-full bg-[#FEBC2E] inline-block"></span>
               <span className="w-3 h-3 rounded-full bg-[#28C840] inline-block"></span>
               <span className="ml-2">terminal</span>
             </div>
-            <pre className="text-sm font-mono leading-relaxed">
+            <pre className="text-xs md:text-sm font-mono leading-relaxed overflow-x-auto">
               <span className="text-[#39FF14]">$</span>{" "}
               <span className="text-gray-400">whoami</span>
               {"\n"}
