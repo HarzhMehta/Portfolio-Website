@@ -169,8 +169,8 @@ export default function Experience() {
         </div>
 
         {/* ── Experience Timeline ── */}
-        <div>
-          <div className="mb-16">
+        <div className="pt-10">
+          <div className="mb-24">
             <div className="inline-block neo-border bg-[#00FFFF] text-black px-4 py-1 text-sm font-black uppercase tracking-widest mb-4">
               03
             </div>
@@ -182,32 +182,32 @@ export default function Experience() {
           {/* Timeline */}
           <div className="relative">
             {/* Center vertical line — desktop only */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white/10 hidden md:block -translate-x-1/2" />
+            <div className="absolute left-1/2 top-4 bottom-12 w-px bg-white/10 hidden md:block -translate-x-1/2" />
 
-            <div className="space-y-0">
+            <div className="space-y-12 md:space-y-24">
               {TIMELINE.map((item, i) => (
-                <div key={i} className="relative flex items-start mb-12">
+                <div key={i} className="relative flex items-start mb-16">
                   {/* Left slot */}
-                  <div className="hidden md:flex flex-1 justify-end pr-10 pt-4">
+                  <div className="hidden md:flex flex-1 justify-end pr-16 pt-4">
                     {item.side === "left" && <TimelineCard item={item} />}
                   </div>
 
                   {/* Center dot */}
                   <div className="hidden md:flex flex-col items-center z-10 relative shrink-0">
                     <div
-                      className="w-5 h-5 rounded-full border-4 border-black mt-6"
-                      style={{ backgroundColor: item.color, boxShadow: `0 0 14px 2px ${item.color}88` }}
+                      className="w-6 h-6 rounded-full border-4 border-black mt-6 shadow-xl transition-transform hover:scale-125"
+                      style={{ backgroundColor: item.color, boxShadow: `0 0 20px 2px ${item.color}88` }}
                     />
                     {i < TIMELINE.length - 1 && (
                       <div
-                        className="w-px flex-1 min-h-16"
+                        className="w-px flex-1 min-h-24"
                         style={{ background: `linear-gradient(to bottom, ${item.color}55, ${TIMELINE[i + 1].color}22)` }}
                       />
                     )}
                   </div>
 
                   {/* Right slot */}
-                  <div className="hidden md:flex flex-1 pl-10 pt-4">
+                  <div className="hidden md:flex flex-1 pl-16 pt-4">
                     {item.side === "right" && <TimelineCard item={item} />}
                   </div>
 
@@ -229,30 +229,30 @@ export default function Experience() {
 function TimelineCard({ item }: { item: (typeof TIMELINE)[0] }) {
   return (
     <div
-      className="w-full max-w-md neo-card bg-black/40 backdrop-blur-sm p-6 group"
+      className="w-full max-w-md neo-card bg-black/40 backdrop-blur-md p-8 md:p-10 group transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
       style={{ borderLeftColor: item.color, borderLeftWidth: "6px" }}
     >
-      <div className="flex flex-col gap-1 mb-4">
-        <div className="flex items-start justify-between gap-3 flex-wrap">
-          <h3 className="text-lg font-black text-white leading-tight">{item.role}</h3>
+      <div className="flex flex-col gap-2 mb-6">
+        <div className="flex items-start justify-between gap-4 flex-wrap">
+          <h3 className="text-2xl font-black text-white leading-tight">{item.role}</h3>
           {item.period && (
             <span
-              className="text-[10px] font-black uppercase tracking-widest px-2 py-0.5 neo-border shrink-0"
+              className="text-xs font-black uppercase tracking-widest px-3 py-1 neo-border shrink-0"
               style={{ color: item.color, borderColor: item.color }}
             >
               {item.period}
             </span>
           )}
         </div>
-        <div className="font-bold text-sm" style={{ color: item.color }}>
+        <div className="font-bold text-lg" style={{ color: item.color }}>
           {item.company}
         </div>
-        {item.dept && <div className="text-xs text-gray-500 font-mono">{item.dept}</div>}
+        {item.dept && <div className="text-sm text-gray-500 font-mono tracking-wide">{item.dept}</div>}
       </div>
-      <ul className="space-y-2">
+      <ul className="space-y-4">
         {item.points.map((point, j) => (
-          <li key={j} className="flex gap-2 text-gray-300 text-sm leading-relaxed">
-            <span style={{ color: item.color }} className="mt-0.5 shrink-0">
+          <li key={j} className="flex gap-4 text-gray-300 text-[15px] leading-relaxed">
+            <span style={{ color: item.color }} className="text-xl mt-0.5 shrink-0">
               &#x25B9;
             </span>
             <span>{point}</span>
@@ -260,7 +260,7 @@ function TimelineCard({ item }: { item: (typeof TIMELINE)[0] }) {
         ))}
       </ul>
       <div
-        className="h-px w-12 mt-4 group-hover:w-full transition-all duration-500"
+        className="h-1 w-16 mt-6 group-hover:w-full transition-all duration-500"
         style={{ backgroundColor: item.color }}
       />
     </div>

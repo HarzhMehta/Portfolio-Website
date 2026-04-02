@@ -8,10 +8,10 @@ import { useParticlesInit } from "./ParticlesProvider";
 function getScale(): number {
   if (typeof window === "undefined") return 0.5;
   const w = window.innerWidth;
-  if (w < 480) return 0.85;
-  if (w < 768) return 0.7;
-  if (w < 1024) return 0.6;
-  return 0.5;
+  if (w < 480) return 0.25;
+  if (w < 768) return 0.35;
+  if (w < 1024) return 0.45;
+  return 0.6;
 }
 
 function buildOptions(scale: number): ISourceOptions {
@@ -33,22 +33,22 @@ function buildOptions(scale: number): ISourceOptions {
       },
     },
     particles: {
-      color: { value: "#00FFFF" },
+      color: { value: "#00fcd2" },
       links: {
-        color: { value: "#DDFF00" },
-        distance: 30,
+        color: { value: "#aeff00" },
+        distance: 40,
         enable: true,
-        opacity: 0.4,
-        width: 1,
+        opacity: 0.8,
+        width: 1.5,
       },
       move: {
         enable: true,
         outModes: { default: "bounce" },
-        speed: 1,
+        speed: 1.5,
       },
-      number: { value: 100 },
+      number: { value: 150 },
       opacity: {
-        value: { min: 0.05, max: 0.4 },
+        value: { min: 0.1, max: 0.6 },
         animation: { enable: true, speed: 2, sync: false },
       },
       shape: { type: "circle" },
@@ -58,7 +58,7 @@ function buildOptions(scale: number): ISourceOptions {
     polygon: {
       draw: {
         enable: true,
-        stroke: { color: { value: "#ffffff" }, width: 1, opacity: 0.2 },
+        stroke: { color: { value: "#ffffff" }, width: 1.5, opacity: 0.6 },
       },
       enable: true,
       inline: { arrangement: "equidistant" },

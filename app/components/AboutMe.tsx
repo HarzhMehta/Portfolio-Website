@@ -38,7 +38,7 @@ export default function AboutMe() {
             </div>
           </div>
 
-          {/* Quick stats */}
+          {/* Quick stats */}<br></br>
           <div className="grid grid-cols-2 gap-4">
             {[
               { number: "6+", label: "Projects Built", color: "#DDFF00" },

@@ -112,6 +112,7 @@ export default function Contact() {
 
         {/* Footer */}
         <div className="mt-24 text-center text-gray-600 text-sm font-mono pb-8">
+          <br></br><br></br>
           <p>
             Built with{" "}
             <span className="text-[#DDFF00]">Next.js</span> +{" "}

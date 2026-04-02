@@ -45,34 +45,31 @@ export default function Achievements() {
         </div>
 
         {/* Timeline-style list */}
-        <div className="relative space-y-0">
+        <div className="relative space-y-12 mt-12">
           {/* Vertical line */}
-          <div className="absolute left-6 top-0 bottom-0 w-0.75 bg-white/10 hidden md:block"></div>
+          <div className="absolute left-6 top-8 bottom-0 w-0.75 bg-white/10 hidden md:block"></div>
 
           {ACHIEVEMENTS.map(({ title, desc, color, icon }, i) => (
-            <div key={title} className="relative flex gap-6 group">
+            <div key={title} className="relative flex gap-8 md:gap-12 group pt-4">
               {/* Dot on timeline */}
-              <div className="hidden md:flex flex-col items-center">
+              <div className="hidden md:flex flex-col items-center shrink-0">
                 <div
-                  className="w-12 h-12 neo-border flex items-center justify-center text-lg font-black bg-black z-10 group-hover:scale-110 transition-transform"
-                  style={{ borderColor: color, color: color }}
+                  className="w-14 h-14 neo-border flex items-center justify-center text-xl font-black bg-black z-10 group-hover:-translate-y-2 transition-transform shadow-lg"
+                  style={{ borderColor: color, color: color, boxShadow: `0 0 20px -5px ${color}` }}
                 >
                   {icon}
                 </div>
-                {i < ACHIEVEMENTS.length - 1 && (
-                  <div className="flex-1 w-0.75" style={{ backgroundColor: color, opacity: 0.2 }}></div>
-                )}
               </div>
 
               {/* Card */}
-              <div className="neo-card bg-black/40 backdrop-blur-sm p-6 mb-6 flex-1 md:ml-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-1 block md:hidden" style={{ color }}>
+              <div className="neo-card bg-black/40 backdrop-blur-md p-8 md:p-10 flex-1 relative border border-white/5 hover:border-white/20 transition-all">
+                <span className="text-sm font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 block md:hidden" style={{ color }}>
                   {icon}
                 </span>
-                <h3 className="text-xl font-black mb-2 text-white">{title}</h3>
-                <p className="text-gray-300 leading-relaxed">{desc}</p>
+                <h3 className="text-2xl md:text-3xl font-black mb-4 text-white tracking-tight">{title}</h3>
+                <p className="text-gray-300 leading-relaxed text-lg">{desc}</p>
                 <div
-                  className="h-1 w-16 mt-4 group-hover:w-full transition-all duration-500"
+                  className="absolute bottom-0 left-0 h-1 w-16 group-hover:w-full transition-all duration-500"
                   style={{ backgroundColor: color }}
                 ></div>
               </div>
