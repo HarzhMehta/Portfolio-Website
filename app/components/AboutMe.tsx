@@ -2,10 +2,10 @@
 
 export default function AboutMe() {
   return (
-    <section id="about" className="relative px-6">
+    <section id="about" className="relative px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="mb-16">
+        <div className="mb-12 sm:mb-16">
           <div className="inline-block neo-border bg-[#00FFFF] text-black px-4 py-1 text-sm font-black uppercase tracking-widest mb-4">
             01
           </div>
@@ -13,22 +13,25 @@ export default function AboutMe() {
             About Me<span className="text-[#00FFFF]">.</span>
           </h2>
         </div>
-<br></br>
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+
+        <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           {/* Bio text */}
-          <div className="space-y-6 neo-card bg-black/40 backdrop-blur-sm p-8">
-            <p className="text-lg text-gray-300 leading-relaxed">
+          <div className="space-y-6 neo-card bg-black/40 backdrop-blur-sm p-6 sm:p-8">
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
               I&apos;m driven by curiosity and a deep appreciation for the beauty in complexity.
-            </p><br></br>
-            <p className="text-lg text-gray-300 leading-relaxed">
+            </p>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
               I love understanding how things work, which has led me to explore diverse fields and take on challenging projects, including building real-world solutions.
-            </p><br></br>
-            <p className="text-lg text-gray-300 leading-relaxed">
+            </p>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+              I&apos;m a GSoC 2026 contributor on the Liquid Galaxy (Google) project.
+            </p>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
               Beyond just learning, I enjoy applying my knowledge to solve problems and continuously push my boundaries. I contribute to open-source projects regularly, collaborating with developers worldwide.
-            </p><br></br>
-            <p className="text-lg text-gray-300 leading-relaxed pb-4">
+            </p>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed pb-2">
               I can also jam Wi-Fi signals or crack passwords without connecting to your network 😉
-            </p><br></br>
+            </p>
             <div className="pt-4 border-t-2 border-white/20">
               <p className="text-md text-white font-bold">
                 Vishwakarma Institute of Technology, Pune
@@ -40,15 +43,15 @@ export default function AboutMe() {
           </div>
 
           {/* Quick stats */}
-          <div className="grid grid-cols-2 gap-4 pt-10 md:pt-0">
+          <div className="grid grid-cols-2 gap-4 pt-6 md:pt-0">
             {[
               { number: "500+", label: "DSA Ques Solved", color: "#DDFF00" },
               { number: "3+", label: "Tech Domains", color: "#00FFFF" },
               { number: "IEEE", label: "Project Head", color: "#FF00FF" },
               { number: "∞", label: "Curiosity", color: "#39FF14" },
             ].map(({ number, label, color }) => (
-              <div key={label} className="neo-card bg-black/60 p-6 text-center">
-                <div className="text-4xl font-black mb-2" style={{ color }}>
+              <div key={label} className="neo-card bg-black/60 p-4 sm:p-6 text-center">
+                <div className="text-3xl sm:text-4xl font-black mb-2" style={{ color }}>
                   {number}
                 </div>
                 <div className="text-xs font-bold uppercase tracking-widest text-gray-400">

@@ -53,7 +53,33 @@ const TECH_CATEGORIES = [
   },
 ];
 
-const TIMELINE = [
+type TimelineItem = {
+  role: string;
+  company: string;
+  dept?: string;
+  period?: string;
+  color: string;
+  side: "left" | "right";
+  points: string[];
+  logo?: string;
+  logoAlt?: string;
+};
+
+const TIMELINE: TimelineItem[] = [
+  {
+    role: "Contributor",
+    company: "Google Summer of Code 2026",
+    dept: "Liquid Galaxy Project (Google) • Remote • Mentors: Andreu Ibáñez, Moisés Martínez",
+    period: "May 2026 — Aug 2026",
+    color: "#39FF14",
+    side: "left",
+    logo: "/assets/gsoc-logo.svg",
+    logoAlt: "Google Summer of Code logo",
+    points: [
+      "Selected to build \"Local AI with Gemma\" — an AI agent server on a single-board computer enabling natural language control of Liquid Galaxy via chat, voice, and Telegram/Discord.",
+      "Designing a modular pipeline using RAG, local and cloud LLMs, speech-to-text/TTS, and agentic protocols to automate KML generation, geospatial visualization, real-time data feeds, and guided storytelling on the globe.",
+    ],
+  },
   {
     role: "Intern",
     company: "Tech Mahindra, Pune",
@@ -122,15 +148,15 @@ const TIMELINE = [
 
 export default function Experience() {
   return (
-    <section id="skills" className="relative px-6">
-      <div className="max-w-6xl mx-auto flex flex-col gap-32 md:gap-40">
+    <section id="skills" className="relative px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto flex flex-col gap-24 md:gap-40">
     
         {/* ── Tech Stack ── */}
         <div>
-          <div className="mb-12">
+          <div className="mb-12 sm:mb-16">
             <div className="inline-block neo-border bg-[#DDFF00] text-black px-4 py-1 text-sm font-black uppercase tracking-widest mb-4">
               02
-            </div> <br></br>
+            </div>
             <h2 className="text-4xl md:text-6xl font-black">
               Tech Stack<span className="text-[#DDFF00]">.</span>
             </h2>
@@ -138,21 +164,21 @@ export default function Experience() {
 
           <div className="space-y-6">
             {TECH_CATEGORIES.map(({ label, color, techs }) => (
-              <div key={label} className="neo-card bg-black/40 backdrop-blur-sm p-6">
+              <div key={label} className="neo-card bg-black/40 backdrop-blur-sm p-5 sm:p-6">
                 <div
                   className="text-xs font-black uppercase tracking-[0.2em] mb-5 pl-1 border-l-4 pl-3"
                   style={{ color, borderColor: color }}
                 >
                   {label}
                 </div>
-                <div className="flex flex-wrap gap-5">
+                <div className="flex flex-wrap gap-4 sm:gap-5">
                   {techs.map(({ name, icon }) => (
                     <div
                       key={name}
                       className="flex flex-col items-center gap-2 group cursor-default"
                     >
                       <div
-                        className="w-16 h-16 neo-border bg-black/60 flex items-center justify-center transition-all duration-200 group-hover:-translate-y-1 group-hover:shadow-lg"
+                        className="w-14 h-14 sm:w-16 sm:h-16 neo-border bg-black/60 flex items-center justify-center transition-all duration-200 group-hover:-translate-y-1 group-hover:shadow-lg"
                         style={{ borderColor: color }}
                       >
                         <i className={`${icon} text-4xl`}></i>
@@ -170,7 +196,7 @@ export default function Experience() {
 
         {/* ── Experience Timeline ── */}
         <div className="pt-16">
-          <div className="mb-16">
+          <div className="mb-12 sm:mb-16">
             <div className="inline-block neo-border bg-[#00FFFF] text-black px-4 py-1 text-sm font-black uppercase tracking-widest mb-4">
               03
             </div>
@@ -184,9 +210,9 @@ export default function Experience() {
             {/* Center vertical line — desktop, left on mobile */}
             <div className="absolute left-5 md:left-1/2 top-4 bottom-12 w-px bg-white/10 md:-translate-x-1/2" />
 
-            <div className="space-y-12 md:space-y-24">
+            <div className="space-y-10 sm:space-y-12 md:space-y-24">
               {TIMELINE.map((item, i) => (
-                <div key={i} className="relative flex items-start mb-16 md:justify-between">
+                <div key={i} className="relative flex items-start mb-12 md:mb-16 md:justify-between">
                   {/* Left slot (Desktop only) */}
                   <div className="hidden md:flex flex-1 justify-end pr-16 pt-4">
                     {item.side === "left" && <TimelineCard item={item} />}
@@ -229,12 +255,12 @@ export default function Experience() {
 function TimelineCard({ item }: { item: (typeof TIMELINE)[0] }) {
   return (
     <div
-      className="w-full min-w-0 md:max-w-md neo-card bg-black/40 backdrop-blur-md p-8 md:p-10 group transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+      className="w-full min-w-0 md:max-w-md neo-card bg-black/40 backdrop-blur-md p-6 sm:p-7 md:p-10 group transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
       style={{ borderLeftColor: item.color, borderLeftWidth: "6px" }}
     >
       <div className="flex flex-col gap-2 mb-6">
         <div className="flex items-start justify-between gap-4 flex-wrap">
-          <h3 className="text-2xl font-black text-white leading-tight">{item.role}</h3>
+          <h3 className="text-xl sm:text-2xl font-black text-white leading-tight">{item.role}</h3>
           {item.period && (
             <span
               className="text-xs font-black uppercase tracking-widest px-3 py-1 neo-border shrink-0"
@@ -244,8 +270,19 @@ function TimelineCard({ item }: { item: (typeof TIMELINE)[0] }) {
             </span>
           )}
         </div>
-        <div className="font-bold text-lg" style={{ color: item.color }}>
-          {item.company}
+        <div className="flex items-center gap-3">
+          {item.logo && (
+            <img
+              src={item.logo}
+              alt={item.logoAlt || `${item.company} logo`}
+              className="w-10 h-10 neo-border bg-black/70 p-1 object-contain"
+              style={{ borderColor: item.color }}
+              loading="lazy"
+            />
+          )}
+          <div className="font-bold text-lg" style={{ color: item.color }}>
+            {item.company}
+          </div>
         </div>
         {item.dept && <div className="text-sm text-gray-500 font-mono tracking-wide">{item.dept}</div>}
       </div>

@@ -53,23 +53,23 @@ const PROJECTS = [
 
 export default function PortfolioSection() {
   return (
-    <section id="projects" className="relative px-6">
+    <section id="projects" className="relative px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="mb-16">
+        <div className="mb-12 sm:mb-16">
           <div className="inline-block neo-border bg-[#FF00FF] text-black px-4 py-1 text-sm font-black uppercase tracking-widest mb-4">
             04
           </div>
           <h2 className="text-4xl md:text-6xl font-black">
             Projects<span className="text-[#FF00FF]">.</span>
           </h2>
-          <p className="text-gray-400 mt-3 text-lg">
+          <p className="text-gray-400 mt-3 text-base sm:text-lg">
             Check out some of my work
           </p>
         </div>
 
         {/* Project Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {PROJECTS.map(({ id, title, desc, link, color, tags }) => (
             <a
               key={id}
@@ -81,7 +81,7 @@ export default function PortfolioSection() {
               {/* Color bar top */}
               <div className="h-2 w-full" style={{ backgroundColor: color }}></div>
 
-              <div className="p-6 space-y-4">
+              <div className="p-5 sm:p-6 space-y-4">
                 {/* Project number */}
                 <span
                   className="text-5xl font-black opacity-30 group-hover:opacity-60 transition-opacity"

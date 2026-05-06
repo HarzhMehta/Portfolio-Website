@@ -42,17 +42,17 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="relative px-4">
+    <section id="contact" className="relative px-4 sm:px-6">
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
-        <div className="mb-16">
+        <div className="mb-12 sm:mb-16">
           <div className="inline-block neo-border bg-[#39FF14] text-black px-4 py-1 text-sm font-black uppercase tracking-widest mb-4">
-            05
+            06
           </div>
           <h2 className="text-4xl md:text-6xl font-black">
             Contact<span className="text-[#39FF14]">.</span>
           </h2>
-          <p className="text-gray-400 mt-3 text-lg">
+          <p className="text-gray-400 mt-3 text-base sm:text-lg">
             Submit the form below to get in touch with me!
           </p>
         </div>
@@ -111,13 +111,12 @@ export default function Contact() {
         </form>
 
         {/* Footer */}
-        <div className="mt-24 text-center text-gray-600 text-sm font-mono pb-8">
-          <br></br><br></br>
+        <div className="mt-16 sm:mt-24 text-center text-gray-600 text-sm font-mono pb-10">
           <p>
             Built with{" "}
             <span className="text-[#DDFF00]">Next.js</span> +{" "}
             <span className="text-[#00FFFF]">tsParticles</span> +{" "}
-            <span className="text-[#FF00FF]">Neobrutalism Theme `-__-' </span>
+            <span className="text-[#FF00FF]">Neobrutalism Theme -__-</span>
           </p>
           
         </div>

@@ -29,23 +29,23 @@ const ACHIEVEMENTS = [
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="relative px-6">
+    <section id="achievements" className="relative px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="mb-16">
+        <div className="mb-12 sm:mb-16">
           <div className="inline-block neo-border bg-[#FF6600] text-black px-4 py-1 text-sm font-black uppercase tracking-widest mb-4">
             05
           </div>
           <h2 className="text-4xl md:text-6xl font-black">
             Achievements<span className="text-[#FF6600]">.</span>
           </h2>
-          <p className="text-gray-400 mt-3 text-lg">
+          <p className="text-gray-400 mt-3 text-base sm:text-lg">
             Milestones & recognitions
           </p>
         </div>
 
         {/* Timeline-style list */}
-        <div className="relative space-y-12 mt-12">
+        <div className="relative space-y-10 sm:space-y-12 mt-10 sm:mt-12">
           {/* Vertical line */}
           <div className="absolute left-6 top-8 bottom-0 w-0.75 bg-white/10 hidden md:block"></div>
 
@@ -62,12 +62,12 @@ export default function Achievements() {
               </div>
 
               {/* Card */}
-              <div className="neo-card bg-black/40 backdrop-blur-md p-8 md:p-10 flex-1 relative border border-white/5 hover:border-white/20 transition-all">
+              <div className="neo-card bg-black/40 backdrop-blur-md p-6 sm:p-8 md:p-10 flex-1 relative border border-white/5 hover:border-white/20 transition-all">
                 <span className="text-sm font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 block md:hidden" style={{ color }}>
                   {icon}
                 </span>
                 <h3 className="text-2xl md:text-3xl font-black mb-4 text-white tracking-tight">{title}</h3>
-                <p className="text-gray-300 leading-relaxed text-lg">{desc}</p>
+                <p className="text-gray-300 leading-relaxed text-base sm:text-lg">{desc}</p>
                 <div
                   className="absolute bottom-0 left-0 h-1 w-16 group-hover:w-full transition-all duration-500"
                   style={{ backgroundColor: color }}

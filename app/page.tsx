@@ -24,7 +24,7 @@ export default function Home() {
       <SocialLinks />
 
       {/* Scrollable content */}
-      <main className="relative z-10 flex flex-col gap-32 md:gap-40 pb-32 overflow-x-clip">
+      <main className="relative z-10 flex flex-col gap-24 sm:gap-32 md:gap-40 pb-32 overflow-x-clip">
         <Hero />
         <AboutMe />
         <Experience />

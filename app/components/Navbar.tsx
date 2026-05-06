@@ -27,7 +27,7 @@ export default function Navbar() {
         scrolled ? "bg-black/40 backdrop-blur-md border-b-3 border-white neo-shadow" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
         {/* Logo */}
         <a href="#home" className="text-2xl md:text-3xl font-black tracking-tight">
           <span className="text-[#DDFF00]">{"<"}</span>
@@ -54,6 +54,8 @@ export default function Navbar() {
           onClick={() => setOpen(!open)}
           className="md:hidden neo-btn p-2 bg-transparent text-white"
           aria-label="Toggle menu"
+          aria-expanded={open}
+          aria-controls="mobile-nav"
         >
           {open ? (
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
@@ -69,6 +71,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
+        id="mobile-nav"
         className={`md:hidden fixed inset-0 bg-black/95 flex flex-col items-center justify-center gap-6 transition-all duration-300 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
@@ -79,7 +82,7 @@ export default function Navbar() {
             key={label}
             href={href}
             onClick={() => setOpen(false)}
-            className="text-4xl font-black uppercase tracking-widest text-white hover:text-[#DDFF00] transition-colors"
+            className="text-3xl sm:text-4xl font-black uppercase tracking-widest text-white hover:text-[#DDFF00] transition-colors"
           >
             {label}
           </a>

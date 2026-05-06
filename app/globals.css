@@ -1,4 +1,5 @@
 ﻿@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap");
 
 * {
   margin: 0;
@@ -8,6 +9,12 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+:root {
+  --font-sans: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", ui-monospace, monospace;
 }
 
 html,
@@ -17,7 +24,13 @@ body {
   overflow-x: hidden;
   background-color: #0a0a0a;
   color: #ffffff;
-  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  font-family: var(--font-sans);
+}
+
+pre,
+code,
+.font-mono {
+  font-family: var(--font-mono);
 }
 
 /* Neobrutalism utility classes */
@@ -92,6 +105,11 @@ body {
 
 /* Section spacing */
 section {
-  min-height: 100vh;
-  padding: 6rem 1rem 4rem;
+  padding: clamp(4rem, 8vw, 6rem) 1rem clamp(3rem, 6vw, 4rem);
+}
+
+@media (min-width: 768px) {
+  section {
+    min-height: 100vh;
+  }
 }
