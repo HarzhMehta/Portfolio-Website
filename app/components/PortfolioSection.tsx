@@ -1,48 +1,58 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 const PROJECTS = [
   {
     id: 1,
-    title: "α SHUP - Retail Management",
-    desc: "Retail Operations and Customer Management Solution for a client in Amravati with Inventory, Customer Management, and Referral & Rewards System.",
+    title: "Ship Rust Detection & Analysis",
+    desc: "Developing a Rust-based detection and analysis system at Creatum, Hamburg, Germany — analyzing large-scale maritime data for security insights and threat detection in the shipping industry.",
     link: "#",
-    color: "#00FFFF",
-    tags: ["Full-Stack", "Web App", "Client Project"],
+    color: "#ff6b35",
+    tags: ["Rust", "Data Analysis", "Maritime Security"],
   },
   {
     id: 2,
-    title: "Open Source Contributor",
-    desc: "Contributing to multiple projects within organizations like OWASP, Google Liquid Galaxy, etc. Successfully completed Hacktoberfest (SuperContributor).",
+    title: "α SHUP - Retail Management",
+    desc: "Retail Operations and Customer Management Solution for a client in Amravati with Inventory, Customer Management, and Referral & Rewards System.",
     link: "#",
-    color: "#DDFF00",
-    tags: ["Open Source", "Hacktoberfest", "OWASP"],
-  },
-  {
-    id: 3,
-    title: "RAG based PDF Search Tool",
-    desc: "AI-powered document search using Retrieval Augmented Generation for intelligent PDF querying.",
-    link: "https://github.com/HarzhMehta/PDF_Search_Tool.git",
-    color: "#FF00FF",
-    tags: ["AI/ML", "RAG", "Python"],
+    color: "#00f0ff",
+    tags: ["Full-Stack", "Web App", "Client Project"],
   },
   {
     id: 4,
-    title: "Realtime DDoS Detection System",
-    desc: "Live network traffic analysis system that detects and alerts on DDoS attacks in real time.",
-    link: "https://www.linkedin.com/posts/harsh-mehta-90933921b_thrilled-to-share-our-latest-project-activity-7264323622184370177-ldHz",
-    color: "#FF3366",
-    tags: ["Cybersecurity", "Networking", "Python"],
+    title: "Open Source Contributor",
+    desc: "Contributing to multiple projects within organizations like OWASP, Google Liquid Galaxy, etc. Successfully completed Hacktoberfest (SuperContributor).",
+    link: "#",
+    color: "#fbff38",
+    tags: ["Open Source", "Hacktoberfest", "OWASP"],
   },
   {
     id: 5,
-    title: "Network Intrusion Detection System",
-    desc: "ML-based NIDS that classifies network packets and detects malicious intrusion patterns.",
-    link: "https://www.linkedin.com/posts/harsh-mehta-90933921b_cybersecurity-nids-networksecurity-activity-7237849222123798531-Bwb_",
-    color: "#00E5FF",
-    tags: ["ML", "Security", "NIDS"],
+    title: "RAG based PDF Search Tool",
+    desc: "AI-powered document search using Retrieval Augmented Generation for intelligent PDF querying.",
+    link: "https://github.com/HarzhMehta/PDF_Search_Tool.git",
+    color: "#d946ef",
+    tags: ["AI/ML", "RAG", "Python"],
   },
   {
     id: 6,
+    title: "Realtime DDoS Detection System",
+    desc: "Live network traffic analysis system that detects and alerts on DDoS attacks in real time.",
+    link: "https://www.linkedin.com/posts/harsh-mehta-90933921b_thrilled-to-share-our-latest-project-activity-7264323622184370177-ldHz",
+    color: "#ff6b35",
+    tags: ["Cybersecurity", "Networking", "Python"],
+  },
+  {
+    id: 7,
+    title: "Network Intrusion Detection System",
+    desc: "ML-based NIDS that classifies network packets and detects malicious intrusion patterns.",
+    link: "https://www.linkedin.com/posts/harsh-mehta-90933921b_cybersecurity-nids-networksecurity-activity-7237849222123798531-Bwb_",
+    color: "#00e5ff",
+    tags: ["ML", "Security", "NIDS"],
+  },
+  {
+    id: 8,
     title: "Skin Cancer Classification",
     desc: "Deep learning web app that classifies skin lesion images for early cancer detection.",
     link: "#",
@@ -53,72 +63,78 @@ const PROJECTS = [
 
 export default function PortfolioSection() {
   return (
-    <section id="projects" className="relative px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
+    <section id="projects">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="mb-12 sm:mb-16">
-          <div className="inline-block neo-border bg-[#FF00FF] text-black px-4 py-1 text-sm font-black uppercase tracking-widest mb-4">
-            04
+          <div className="section-tag">
+            <span className="dot" style={{ background: "#d946ef" }} />
+            Projects
           </div>
-          <h2 className="text-4xl md:text-6xl font-black">
-            Projects<span className="text-[#FF00FF]">.</span>
+          <h2 className="section-heading">
+            Things I&apos;ve <span className="gradient-text">built</span>
           </h2>
-          <p className="text-gray-400 mt-3 text-base sm:text-lg">
+          <p className="text-gray-500 mt-3 text-base">
             Check out some of my work
           </p>
         </div>
 
-        {/* Project Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {PROJECTS.map(({ id, title, desc, link, color, tags }) => (
-            <a
+            <motion.a
               key={id}
               href={link}
               target={link.startsWith("http") ? "_blank" : undefined}
               rel={link.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="neo-card bg-black/40 backdrop-blur-sm p-0 group block"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: id * 0.05 }}
+              className="gradient-border-card p-0 group block"
             >
-              {/* Color bar top */}
-              <div className="h-2 w-full" style={{ backgroundColor: color }}></div>
+              <div className="h-1.5 w-full rounded-t-[15px]" style={{ backgroundColor: color }} />
 
-              <div className="p-5 sm:p-6 space-y-4">
-                {/* Project number */}
+              <div className="p-12 sm:p-14 space-y-6">
                 <span
-                  className="text-5xl font-black opacity-30 group-hover:opacity-60 transition-opacity"
+                  className="text-4xl font-extrabold opacity-20 group-hover:opacity-40 transition-opacity"
                   style={{ color }}
                 >
                   {String(id).padStart(2, "0")}
                 </span>
 
-                <h3 className="text-xl font-black leading-tight text-white">{title}</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">{desc}</p>
+                <h3 className="text-lg font-bold leading-tight text-white group-hover:text-[#00f0ff] transition-colors">
+                  {title}
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
 
-                {/* Tags */}
                 <div className="flex flex-wrap gap-2">
                   {tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 border-2 border-gray-600 text-gray-400"
+                      className="text-[9px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded-full border border-white/[0.06] text-gray-500"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                {/* Arrow */}
-                <div className="flex justify-end pt-2">
+                <div className="flex justify-end pt-1">
                   <span
-                    className="text-2xl font-black transition-transform duration-200 group-hover:translate-x-1"
+                    className="text-xl font-bold transition-all duration-200 group-hover:translate-x-1 group-hover:-translate-y-0.5"
                     style={{ color }}
                   >
-                    →
+                    ↗
                   </span>
                 </div>
               </div>
-            </a>
+            </motion.a>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

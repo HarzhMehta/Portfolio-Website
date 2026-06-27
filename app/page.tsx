@@ -9,28 +9,32 @@ import PortfolioSection from "./components/PortfolioSection";
 import Achievements from "./components/Achievements";
 import Contact from "./components/Contact";
 import SocialLinks from "./components/SocialLinks";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
     <>
-      {/* Fixed particle backgrounds */}
       <ParticlesProvider>
         <ParticlesBackground />
       </ParticlesProvider>
       <AmbientParticles />
 
-      {/* Fixed UI elements */}
       <Navbar />
+      <br></br>
       <SocialLinks />
 
-      {/* Scrollable content */}
-      <main className="relative z-10 flex flex-col gap-24 sm:gap-32 md:gap-40 pb-32 overflow-x-clip">
+      <main className="relative z-10">
         <Hero />
-        <AboutMe />
-        <Experience />
-        <PortfolioSection />
-        <Achievements />
-        <Contact />
+        <div className="max-w-7xl mx-auto space-y-28 sm:space-y-36 md:space-y-48 pb-20 px-4 sm:px-6 lg:px-8">
+          <br></br>
+          <AboutMe />
+         
+          <Experience /><br></br>
+          <PortfolioSection />
+          <Achievements />
+          <Contact />
+        </div>
+        <Footer />
       </main>
     </>
   );

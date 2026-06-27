@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -9,7 +10,6 @@ export default function Contact() {
     e.preventDefault();
     setStatus("sending");
 
-    // Using emailjs via REST API
     const form = e.currentTarget;
     const data = new FormData(form);
 
@@ -42,25 +42,33 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="relative px-4 sm:px-6">
-      <div className="max-w-4xl mx-auto">
-        {/* Section Header */}
-        <div className="mb-12 sm:mb-16">
-          <div className="inline-block neo-border bg-[#39FF14] text-black px-4 py-1 text-sm font-black uppercase tracking-widest mb-4">
-            06
+    <section id="contact" className="flex flex-col items-center justify-center min-h-screen">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.5 }}
+        className="w-full max-w-2xl mx-auto"
+      >
+        <div className="mb-12 sm:mb-16 text-center">
+          <div className="section-tag">
+            <span className="dot" style={{ background: "#7dff5a" }} />
+            Contact
           </div>
-          <h2 className="text-4xl md:text-6xl font-black">
-            Contact<span className="text-[#39FF14]">.</span>
+          <h2 className="section-heading">
+            Get in <span className="gradient-text-cyan">touch</span>
           </h2>
-          <p className="text-gray-400 mt-3 text-base sm:text-lg">
-            Submit the form below to get in touch with me!
+          <p className="text-gray-500 mt-3 text-base">
+            Submit the form below to reach out!
           </p>
         </div>
 
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-6 max-w-xl mx-auto">
+        <form
+          onSubmit={handleSubmit}
+          className="max-w-xl mx-auto space-y-8 gradient-border-card p-12 sm:p-16"
+        >
           <div>
-            <label className="block text-xs font-black uppercase tracking-widest mb-2 text-gray-400">
+            <label className="block text-[10px] font-semibold uppercase tracking-[0.2em] mb-2 text-gray-500">
               Name
             </label>
             <input
@@ -68,12 +76,12 @@ export default function Contact() {
               name="user_name"
               required
               placeholder="Your name"
-              className="w-full neo-border bg-black/60 text-white px-4 py-3 text-base font-medium placeholder-gray-600 focus:outline-none focus:shadow-[6px_6px_0px_#DDFF00] transition-shadow"
+              className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl text-white px-4 py-3 text-sm placeholder-gray-600 focus:outline-none focus:border-[#7dff5a]/40 focus:bg-white/[0.05] transition-all"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-black uppercase tracking-widest mb-2 text-gray-400">
+            <label className="block text-[10px] font-semibold uppercase tracking-[0.2em] mb-2 text-gray-500">
               Email
             </label>
             <input
@@ -81,12 +89,12 @@ export default function Contact() {
               name="user_email"
               required
               placeholder="your@email.com"
-              className="w-full neo-border bg-black/60 text-white px-4 py-3 text-base font-medium placeholder-gray-600 focus:outline-none focus:shadow-[6px_6px_0px_#00FFFF] transition-shadow"
+              className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl text-white px-4 py-3 text-sm placeholder-gray-600 focus:outline-none focus:border-[#00f0ff]/40 focus:bg-white/[0.05] transition-all"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-black uppercase tracking-widest mb-2 text-gray-400">
+            <label className="block text-[10px] font-semibold uppercase tracking-[0.2em] mb-2 text-gray-500">
               Message
             </label>
             <textarea
@@ -94,33 +102,28 @@ export default function Contact() {
               required
               rows={6}
               placeholder="What's on your mind?"
-              className="w-full neo-border bg-black/60 text-white px-4 py-3 text-base font-medium placeholder-gray-600 focus:outline-none focus:shadow-[6px_6px_0px_#FF00FF] transition-shadow resize-none"
+              className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl text-white px-4 py-3 text-sm placeholder-gray-600 focus:outline-none focus:border-[#d946ef]/40 focus:bg-white/[0.05] transition-all resize-none"
             />
           </div>
 
           <button
             type="submit"
             disabled={status === "sending"}
-            className="neo-btn bg-[#DDFF00] text-black px-10 py-4 font-black uppercase text-sm tracking-widest w-full disabled:opacity-50 disabled:cursor-not-allowed"
+            className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {status === "idle" && "Let's Connect →"}
+            {status === "idle" && "Send Message →"}
             {status === "sending" && "Sending..."}
-            {status === "sent" && "✓ Message Sent!"}
+            {status === "sent" && "✓ Sent!"}
             {status === "error" && "Failed — Try Again"}
           </button>
-        </form>
 
-        {/* Footer */}
-        <div className="mt-16 sm:mt-24 text-center text-gray-600 text-sm font-mono pb-10">
-          <p>
-            Built with{" "}
-            <span className="text-[#DDFF00]">Next.js</span> +{" "}
-            <span className="text-[#00FFFF]">tsParticles</span> +{" "}
-            <span className="text-[#FF00FF]">Neobrutalism Theme -__-</span>
-          </p>
-          
-        </div>
-      </div>
+          {status === "error" && (
+            <p className="text-red-400 text-xs text-center font-mono">
+              Something went wrong. Please try again or email me directly.
+            </p>
+          )}
+        </form>
+      </motion.div>
     </section>
   );
 }

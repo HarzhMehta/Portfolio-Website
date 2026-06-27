@@ -1,66 +1,93 @@
 "use client";
 
+import { motion } from "framer-motion";
+
+const stats = [
+  { number: "500+", label: "DSA Problems Solved", color: "#00f0ff" },
+  { number: "3", label: "Research Papers", color: "#d946ef" },
+  { number: "GSoC '26", label: "Always learning", color: "#fbff38" },
+  { number: "∞", label: "Curiosity", color: "#7dff5a" },
+];
+
 export default function AboutMe() {
   return (
-    <section id="about" className="relative px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="mb-12 sm:mb-16">
-          <div className="inline-block neo-border bg-[#00FFFF] text-black px-4 py-1 text-sm font-black uppercase tracking-widest mb-4">
-            01
-          </div>
-          <h2 className="text-4xl md:text-6xl font-black">
-            About Me<span className="text-[#00FFFF]">.</span>
-          </h2>
+    <section id="about">
+      {/* Section Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.5 }}
+        className="mb-12 sm:mb-16"
+      >
+        <div className="section-tag">
+          <span className="dot" style={{ background: "#00f0ff" }} />
+          About
         </div>
+        <h2 className="section-heading">
+          Who <span className="gradient-text-cyan">am I</span>?
+        </h2>
+      </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-start">
-          {/* Bio text */}
-          <div className="space-y-6 neo-card bg-black/40 backdrop-blur-sm p-6 sm:p-8">
+      <div className="grid md:grid-cols-5 gap-8 md:gap-12 items-start">
+        {/* Bio - takes 3 cols */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="md:col-span-3"
+        >
+          <div className="gradient-border-card p-12 sm:p-16 space-y-6">
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              I&apos;m driven by curiosity and a deep appreciation for the beauty in complexity.
+              I&apos;m driven by curiosity and a deep appreciation for the beauty in complexity. I love understanding how things work, which has led me to explore diverse fields — from full-stack development to cybersecurity and AI agents.
             </p>
+            <br></br>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              I love understanding how things work, which has led me to explore diverse fields and take on challenging projects, including building real-world solutions.
+              I&apos;m a <strong className="text-[#7dff5a]">GSoC 2026 contributor</strong> working on the Liquid Galaxy (Google) project, where I&apos;m building &quot;Local AI with Gemma&quot; — an AI agent server enabling natural language control of a multi-screen globe setup.
             </p>
+            <br></br>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              I&apos;m a GSoC 2026 contributor on the Liquid Galaxy (Google) project.
+              I love to study system design, collaborate with developers worldwide, and enjoy applying my knowledge to solve real-world problems.
             </p>
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              Beyond just learning, I enjoy applying my knowledge to solve problems and continuously push my boundaries. I contribute to open-source projects regularly, collaborating with developers worldwide.
-            </p>
+            <br></br>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed pb-2">
-              I can also jam Wi-Fi signals or crack passwords without connecting to your network 😉
+              I can also jam Wi-Fi signals or crack passwords without connecting to your network 😉 — ask me about it over on <a href="https://x.com/harsh30121" target="_blank" rel="noopener noreferrer" className="text-[#00f0ff] hover:underline">X</a>.
             </p>
-            <div className="pt-4 border-t-2 border-white/20">
-              <p className="text-md text-white font-bold">
+            <br></br>
+            <div className="pt-4 border-t border-white/[0.06] mt-4">
+              <p className="text-base font-semibold text-white">
                 Vishwakarma Institute of Technology, Pune
               </p>
-              <p className="text-sm text-[#00FFFF] font-bold mt-1">
-                Bachelor of Technology in Information Technology | CGPA - 8.89
+              <p className="text-sm text-gray-500 mt-0.5">
+                B.Tech in Information Technology — CGPA: 8.95
               </p>
             </div>
           </div>
+        </motion.div>
 
-          {/* Quick stats */}
-          <div className="grid grid-cols-2 gap-4 pt-6 md:pt-0">
-            {[
-              { number: "500+", label: "DSA Ques Solved", color: "#DDFF00" },
-              { number: "3+", label: "Tech Domains", color: "#00FFFF" },
-              { number: "IEEE", label: "Project Head", color: "#FF00FF" },
-              { number: "∞", label: "Curiosity", color: "#39FF14" },
-            ].map(({ number, label, color }) => (
-              <div key={label} className="neo-card bg-black/60 p-4 sm:p-6 text-center">
-                <div className="text-3xl sm:text-4xl font-black mb-2" style={{ color }}>
-                  {number}
-                </div>
-                <div className="text-xs font-bold uppercase tracking-widest text-gray-400">
-                  {label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Stats - takes 2 cols */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="md:col-span-2 grid grid-cols-2 gap-4"
+        >
+          {stats.map(({ number, label, color }) => (
+            <div
+              key={label}
+              className="gradient-border-card p-10 sm:p-12 text-center flex flex-col items-center justify-center gap-3"
+            >
+              <span className="text-3xl sm:text-4xl font-extrabold" style={{ color }}>
+                {number}
+              </span>
+              <span className="text-[10px] font-semibold uppercase tracking-widest text-gray-500">
+                {label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

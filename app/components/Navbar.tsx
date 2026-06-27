@@ -1,14 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "About Me", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Achievements", href: "#achievements" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Achievements", href: "/#achievements" },
+  { label: "Contact", href: "/#contact" },
+  { label: "Blogs", href: "/blogs" },
 ];
 
 export default function Navbar() {
@@ -17,31 +19,36 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-black/40 backdrop-blur-md border-b-3 border-white neo-shadow" : "bg-transparent"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-[#05080a]/80 backdrop-blur-xl border-b border-white/[0.04]"
+          : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 lg:px-12 py-5">
         {/* Logo */}
-        <a href="#home" className="text-2xl md:text-3xl font-black tracking-tight">
-          <span className="text-[#DDFF00]">{"<"}</span>
+        <a
+          href="#home"
+          className="text-xl md:text-2xl font-extrabold tracking-tight hover:opacity-80 transition-opacity shrink-0"
+        >
+          <span className="text-[#00f0ff]">{"<"}</span>
           Harsh
-          <span className="text-[#00FFFF]">{" />"}</span>
+          <span className="text-[#d946ef]">{" />"}</span>
         </a>
 
-        {/* Desktop Links */}
-        <ul className="hidden md:flex items-center gap-8">
+        {/* Desktop Links - Centered */}
+        <ul className="hidden md:flex items-center justify-center gap-2 absolute left-1/2 -translate-x-1/2">
           {NAV_LINKS.map(({ label, href }) => (
             <li key={label}>
               <a
                 href={href}
-                className="neo-btn block px-5 py-2 text-sm font-bold uppercase tracking-widest bg-transparent text-white hover:bg-[#DDFF00] hover:text-black"
+                className="px-6 py-3 text-[16px] font-semibold tracking-wide text-gray-400 hover:text-white transition-colors rounded-xl border border-white/10 hover:border-[#00f0ff]/40 bg-white/[0.02] hover:bg-white/[0.06]"
               >
                 {label}
               </a>
@@ -49,50 +56,63 @@ export default function Navbar() {
           ))}
         </ul>
 
+        {/* Spacer for flex balance */}
+        <div className="hidden md:block w-[140px] shrink-0" />
+
         {/* Mobile toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden neo-btn p-2 bg-transparent text-white"
+          className="md:hidden relative w-9 h-9 flex items-center justify-center text-white hover:text-[#00f0ff] transition-colors"
           aria-label="Toggle menu"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
         >
-          {open ? (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            {open ? (
               <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          )}
+            ) : (
+              <>
+                <path d="M4 6h16" />
+                <path d="M4 12h16" />
+                <path d="M4 18h16" />
+              </>
+            )}
+          </svg>
         </button>
       </div>
 
       {/* Mobile Menu */}
-      <div
-        id="mobile-nav"
-        className={`md:hidden fixed inset-0 bg-black/95 flex flex-col items-center justify-center gap-6 transition-all duration-300 ${
-          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-        style={{ zIndex: 49 }}
-      >
-        {NAV_LINKS.map(({ label, href }) => (
-          <a
-            key={label}
-            href={href}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden fixed inset-0 bg-[#05080a]/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-8"
+            style={{ zIndex: 49 }}
             onClick={() => setOpen(false)}
-            className="text-3xl sm:text-4xl font-black uppercase tracking-widest text-white hover:text-[#DDFF00] transition-colors"
           >
-            {label}
-          </a>
-        ))}
-        <div className="flex gap-6 mt-8">
-          <a href="https://github.com/HarzhMehta" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00FFFF] text-lg font-bold uppercase">GitHub</a>
-          <a href="https://www.linkedin.com/in/harsh-mehta-90933921b/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00FFFF] text-lg font-bold uppercase">LinkedIn</a>
-          <a href="https://www.youtube.com/@HarzhMehta" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00FFFF] text-lg font-bold uppercase">YouTube</a>
-        </div>
-      </div>
+            {NAV_LINKS.map(({ label, href }, i) => (
+              <motion.a
+                key={label}
+                href={href}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -24 }}
+                transition={{ delay: i * 0.05 }}
+                className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-300 hover:text-white transition-colors"
+              >
+                {label}
+              </motion.a>
+            ))}
+            <div className="flex gap-8 mt-10">
+              <a href="https://github.com/HarzhMehta" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 hover:text-[#00f0ff] transition-colors">GitHub</a>
+              <a href="https://www.linkedin.com/in/harsh-mehta-90933921b/" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 hover:text-[#d946ef] transition-colors">LinkedIn</a>
+              <a href="https://x.com/harsh30121" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 hover:text-[#fbff38] transition-colors">X</a>
+              <a href="https://www.youtube.com/@HarzhMehta" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 hover:text-[#ff6b35] transition-colors">YouTube</a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
