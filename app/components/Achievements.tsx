@@ -56,7 +56,7 @@ export default function Achievements() {
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.5 }}
       >
-        <div className="mb-12 sm:mb-16">
+        <div className="section-intro">
           <div className="section-tag">
             <span className="dot" style={{ background: "#ff6b35" }} />
             Achievements
@@ -69,7 +69,7 @@ export default function Achievements() {
           </p>
         </div>
 
-        <div className="relative space-y-6 sm:space-y-8 mt-10">
+        <div className="relative space-y-6 sm:space-y-8 mt-10 max-w-4xl mx-auto">
           <div className="absolute left-6 top-8 bottom-0 w-px bg-white/[0.04] hidden md:block" />
 
           {ACHIEVEMENTS.map(({ title, desc, color, icon }, i) => (
@@ -90,7 +90,7 @@ export default function Achievements() {
                 </div>
               </div>
 
-              <div className="gradient-border-card p-12 sm:p-14 md:p-16 flex-1">
+              <div className="gradient-border-card p-8 sm:p-12 lg:p-16 flex-1 text-center sm:text-left">
                 <span className="text-[10px] font-semibold uppercase tracking-widest text-gray-600 mb-3 block md:hidden" style={{ color }}>
                   {icon}
                 </span>

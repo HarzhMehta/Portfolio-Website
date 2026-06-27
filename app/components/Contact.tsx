@@ -50,7 +50,7 @@ export default function Contact() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-2xl mx-auto"
       >
-        <div className="mb-12 sm:mb-16 text-center">
+        <div className="section-intro">
           <div className="section-tag">
             <span className="dot" style={{ background: "#7dff5a" }} />
             Contact
@@ -65,7 +65,7 @@ export default function Contact() {
 
         <form
           onSubmit={handleSubmit}
-          className="max-w-xl mx-auto space-y-8 gradient-border-card p-12 sm:p-16"
+          className="max-w-xl mx-auto space-y-8 gradient-border-card p-8 sm:p-12 lg:p-16"
         >
           <div>
             <label className="block text-[10px] font-semibold uppercase tracking-[0.2em] mb-2 text-gray-500">

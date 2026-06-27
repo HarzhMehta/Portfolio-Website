@@ -20,16 +20,13 @@ export default function Home() {
       <AmbientParticles />
 
       <Navbar />
-      <br></br>
       <SocialLinks />
 
-      <main className="relative z-10">
+      <main className="relative z-10 pt-20 lg:pb-0 pb-20">
         <Hero />
-        <div className="max-w-7xl mx-auto space-y-28 sm:space-y-36 md:space-y-48 pb-20 px-4 sm:px-6 lg:px-8">
-          <br></br>
+        <div className="page-container space-y-28 sm:space-y-36 md:space-y-48 pb-20">
           <AboutMe />
-         
-          <Experience /><br></br>
+          <Experience />
           <PortfolioSection />
           <Achievements />
           <Contact />

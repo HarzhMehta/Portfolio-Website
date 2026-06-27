@@ -160,7 +160,7 @@ export default function Experience() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
         >
-          <div className="mb-12 sm:mb-16">
+          <div className="section-intro">
             <div className="section-tag">
               <span className="dot" style={{ background: "#fbff38" }} />
               Tech Stack
@@ -170,16 +170,16 @@ export default function Experience() {
             </h2>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 max-w-5xl mx-auto">
             {TECH_CATEGORIES.map(({ label, color, techs }) => (
-              <div key={label} className="gradient-border-card p-10 sm:p-12">
+              <div key={label} className="gradient-border-card p-8 sm:p-12 lg:p-14">
                 <div
-                  className="text-[10px] font-semibold uppercase tracking-[0.2em] mb-5 pl-3 border-l-2"
+                  className="text-[10px] font-semibold uppercase tracking-[0.2em] mb-5 pl-3 border-l-2 text-center sm:text-left"
                   style={{ color, borderColor: color }}
                 >
                   {label}
                 </div>
-                <div className="flex flex-wrap gap-3 sm:gap-4">
+                <div className="flex flex-wrap gap-3 sm:gap-4 justify-center sm:justify-start">
                   {techs.map(({ name, icon }) => (
                     <div
                       key={name}
@@ -206,7 +206,7 @@ export default function Experience() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
         >
-          <div className="mb-12 sm:mb-16">
+          <div className="section-intro">
             <div className="section-tag">
               <span className="dot" style={{ background: "#00f0ff" }} />
               Experience
@@ -217,7 +217,7 @@ export default function Experience() {
           </div>
 
           {/* Timeline */}
-          <div className="relative">
+          <div className="relative max-w-5xl mx-auto">
             <div className="absolute left-5 md:left-1/2 top-4 bottom-12 w-px bg-white/[0.04] md:-translate-x-1/2" />
 
             <div className="space-y-10 sm:space-y-12 md:space-y-20">
@@ -266,7 +266,7 @@ function TimelineCard({ item, index }: { item: TimelineItem; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="w-full min-w-0 md:max-w-lg gradient-border-card p-12 sm:p-16 group"
+      className="w-full min-w-0 md:max-w-lg gradient-border-card p-8 sm:p-12 lg:p-16 group mx-auto"
     >
       <div className="flex flex-col gap-3 mb-6">
         <div className="flex items-start justify-between gap-4 flex-wrap">

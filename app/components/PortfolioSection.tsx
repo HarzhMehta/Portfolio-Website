@@ -70,7 +70,7 @@ export default function PortfolioSection() {
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.5 }}
       >
-        <div className="mb-12 sm:mb-16">
+        <div className="section-intro">
           <div className="section-tag">
             <span className="dot" style={{ background: "#d946ef" }} />
             Projects
@@ -83,7 +83,7 @@ export default function PortfolioSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
           {PROJECTS.map(({ id, title, desc, link, color, tags }) => (
             <motion.a
               key={id}
@@ -98,7 +98,7 @@ export default function PortfolioSection() {
             >
               <div className="h-1.5 w-full rounded-t-[15px]" style={{ backgroundColor: color }} />
 
-              <div className="p-12 sm:p-14 space-y-6">
+              <div className="p-8 sm:p-12 lg:p-16 space-y-6">
                 <span
                   className="text-4xl font-extrabold opacity-20 group-hover:opacity-40 transition-opacity"
                   style={{ color }}

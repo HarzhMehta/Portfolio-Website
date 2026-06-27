@@ -9,9 +9,8 @@ export default function BlogsLayout({
   return (
     <>
       <Navbar />
-      <br></br> <br></br>
-      <main className="relative z-20 flex justify-center pt-24">
-        <div className="w-full max-w-6xl px-6">
+      <main className="relative z-20 flex justify-center pt-24 pb-24 lg:pb-10">
+        <div className="page-container max-w-6xl">
           {children}
         </div>
       </main>

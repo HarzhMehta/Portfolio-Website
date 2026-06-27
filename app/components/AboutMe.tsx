@@ -18,7 +18,7 @@ export default function AboutMe() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.5 }}
-        className="mb-12 sm:mb-16"
+        className="section-intro"
       >
         <div className="section-tag">
           <span className="dot" style={{ background: "#00f0ff" }} />
@@ -38,7 +38,7 @@ export default function AboutMe() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="md:col-span-3"
         >
-          <div className="gradient-border-card p-12 sm:p-16 space-y-6">
+          <div className="gradient-border-card p-8 sm:p-12 lg:p-16 space-y-6">
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
               I&apos;m driven by curiosity and a deep appreciation for the beauty in complexity. I love understanding how things work, which has led me to explore diverse fields — from full-stack development to cybersecurity and AI agents.
             </p>
@@ -77,7 +77,7 @@ export default function AboutMe() {
           {stats.map(({ number, label, color }) => (
             <div
               key={label}
-              className="gradient-border-card p-10 sm:p-12 text-center flex flex-col items-center justify-center gap-3"
+              className="gradient-border-card p-8 sm:p-10 lg:p-12 text-center flex flex-col items-center justify-center gap-3"
             >
               <span className="text-3xl sm:text-4xl font-extrabold" style={{ color }}>
                 {number}

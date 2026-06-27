@@ -34,7 +34,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="pt-16 sm:pt-24 pb-10">
+    <footer className="pt-16 sm:pt-24 pb-24 lg:pb-10 page-container">
       <div className="border-t border-white/[0.04] pt-10 sm:pt-14">
         <div className="flex flex-col items-center text-center gap-6">
           {/* Logo / Name */}
