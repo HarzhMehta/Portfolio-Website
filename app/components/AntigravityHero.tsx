@@ -28,7 +28,7 @@ const proofPoints = [
   { value: "8.95", label: "CGPA", detail: "VIT Pune, B.Tech IT" },
 ];
 
-const focusAreas = ["Full-stack", "Cybersecurity", "AI agents", "Open source"];
+const focusAreas = ["Full-stack dev", "A bit of Cybersecurity", "Agentic AI", "Open source <3"];
 
 export default function AntigravityHero() {
   const [typedText, setTypedText] = useState("");
@@ -125,7 +125,7 @@ export default function AntigravityHero() {
           </div>
           <div className="hero-current-stack">
             <span>Currently</span>
-            <p>Shipping at Quantifai and building Local AI with Gemma for Liquid Galaxy.</p>
+            <p>Trying to do DSA along with understanding a bit of financial terminologies for internship hehe</p>
           </div>
         </aside>
       </div>
