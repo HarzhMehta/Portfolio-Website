@@ -1,6 +1,6 @@
 ---
 title: "My GSoC Midterm Journey with Liquid Galaxy"
-subtitle: "Halfway through Google Summer of Code: building Hermes Agent to control Liquid Galaxy with natural language, voice, SSH automation, and dynamic KML generation."
+subtitle: "Halfway through Google Summer of Code: building an Agent to control Liquid Galaxy with natural language, voice, SSH automation, and dynamic KML generation."
 date: "July 8, 2026"
 category: "gsoc"
 image: "/assets/GSoC-Vertical.svg"
@@ -33,7 +33,7 @@ For a non-technical person, writing KML code or managing a cluster of Linux mach
 
 That is exactly where my GSoC project comes in.
 
-My goal is to bridge this gap completely using a system I am building called the **Hermes Agent**.
+My goal is to bridge this gap completely using a system I am building using the **Hermes Agent**.
 
 ![Hermes Agent preview](/assets/hermesagent.png)
 
@@ -41,7 +41,7 @@ The concept is simple but powerful: we run the agent locally on a Raspberry Pi, 
 
 By deploying a local instance of a large language model like Gemma, or by using cloud APIs where appropriate, the system gains the exact skills and knowledge needed to control the entire display rig using nothing but natural language or simple voice commands.
 
-## The Journey to Midterm: What Is Built So Far
+## What Is Built So Far
 
 When I first sat down with my mentors to map out the core use cases for the assistant, we realized the project naturally split into two major pillars.
 
@@ -60,8 +60,6 @@ etc..
 
 These can be triggered natively through natural language.
 
-Because shutting down a whole cluster is a heavy action, I also built an automated safety confirmation loop. If you tell it to turn off, it does not just pull the plug. It pauses, asks for confirmation, and then cleanly executes the backend script across all connected screen nodes.
-
 ## 2. Dynamic KML and Cinematic Tour Generation
 
 The second, and arguably most fun, pillar is turning abstract human ideas into immediate visual map layers. Instead of writing lines of geographic coordinates, you can just talk to the agent.
@@ -70,7 +68,7 @@ For example, during testing, I gave it a prompt:
 
 > Create a tour of the Himalayan mountain ranges in India, but also create some 3D triangles indicating the peaks of the mountains. Make the 3D triangles blue.
 
-The agent successfully parsed the request, computed the coordinates for peaks like Kanchenjunga and Nanda Devi, generated a raw `himalayas.kml` payload on the fly, and pushed it to the rig.
+The agent successfully parsed the request, searched the coordinates for peaks like Kanchenjunga and Nanda Devi, generated a raw `himalayas.kml` payload on the fly, and pushed it to the rig.
 
 Within seconds, the Liquid Galaxy initiated a smooth, cinematic flying tour around the Himalayas while rendering custom-extruded blue 3D peaks right on the physical display canvas.
 
@@ -78,13 +76,13 @@ I have also added voice support using TTS and STT with Hermes and its built-in c
 
 There are deeper changes made such as saving KMLs generated in memory to reuse, optimizing skills and creating a standard arch for a user to be able to make their own use cases and so on ... Maybe i'll write in depth in the 2nd blog after GSoC. 
 
-## What Is Next?
+## What's Next?
 
-Right now, I am shifting focus toward building **OKF**, or Object Knowledge Framework, format memories for the agent. This will give the assistant a structured, long-term memory system so it can better retain contextual information about the environment, user preferences, and previous commands.
+Right now, I am shifting focus toward building **OKF**, or Open Knowledge Format, format memories for the agent. This will give the assistant a structured, long-term memory system so it can better retain contextual information about the environment, user preferences, and previous commands.
 
 I am also brainstorming more creative and complex KML use cases, along with interactive asset injections, such as targeting specific grid blocks on a physical layout to inject 3D models.
 
-We actually tested injecting a 3D Pikachu onto a custom map matrix in the lab recently!
+My mentors and students at Lleida, Spain tested injecting a 3D Pikachu onto a custom map matrix in the lab recently!
 
 ## What I Realized
 
