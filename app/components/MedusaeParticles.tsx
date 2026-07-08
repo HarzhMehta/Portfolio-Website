@@ -116,6 +116,7 @@ const fragmentShader = `
 export default function MedusaeParticles() {
   const meshRef = useRef<THREE.InstancedMesh>(null!);
   const { viewport } = useThree();
+  const globalPointer = useRef(new THREE.Vector2(0, 0));
 
   const countX = 100;
   const countY = 55;
@@ -193,26 +194,35 @@ export default function MedusaeParticles() {
   useEffect(() => {
     const handleLeave = () => (hovering.current = false);
     const handleEnter = () => (hovering.current = true);
+    const handlePointerMove = (event: PointerEvent) => {
+      hovering.current = true;
+      globalPointer.current.set(
+        (event.clientX / window.innerWidth) * 2 - 1,
+        -(event.clientY / window.innerHeight) * 2 + 1,
+      );
+    };
 
-    document.body.addEventListener("mouseleave", handleLeave);
-    document.body.addEventListener("mouseenter", handleEnter);
+    window.addEventListener("pointermove", handlePointerMove, { passive: true });
+    window.addEventListener("pointerleave", handleLeave);
+    window.addEventListener("pointerenter", handleEnter);
 
     return () => {
-      document.body.removeEventListener("mouseleave", handleLeave);
-      document.body.removeEventListener("mouseenter", handleEnter);
+      window.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener("pointerleave", handleLeave);
+      window.removeEventListener("pointerenter", handleEnter);
     };
   }, []);
 
   useFrame((state) => {
-    const { clock, pointer } = state;
+    const { clock } = state;
     material.uniforms.uTime.value = clock.getElapsedTime();
 
     let targetX = 0;
     let targetY = 0;
 
     if (hovering.current) {
-      targetX = (pointer.x * viewport.width) / 2;
-      targetY = (pointer.y * viewport.height) / 2;
+      targetX = (globalPointer.current.x * viewport.width) / 2;
+      targetY = (globalPointer.current.y * viewport.height) / 2;
     }
 
     const current = material.uniforms.uMouse.value;

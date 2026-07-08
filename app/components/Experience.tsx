@@ -69,6 +69,18 @@ type TimelineItem = {
 
 const TIMELINE: TimelineItem[] = [
   {
+    role: "SDE Intern",
+    company: "Quantifai",
+    dept: "Software engineering internship",
+    period: "Jul 2026 — Present",
+    color: "#00f0ff",
+    side: "right",
+    points: [
+      "Joined Quantifai as an SDE intern in July 2026.",
+      "Working across data engineering, backend systems, agentic ai tools, and financial reconciliation software.",
+    ],
+  },
+  {
     role: "Contributor",
     company: "Google Summer of Code 2026",
     dept: "Liquid Galaxy Project (Google) • Remote • Mentors: Andreu Ibáñez, Moisés Martínez",

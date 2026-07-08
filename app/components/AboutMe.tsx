@@ -40,11 +40,11 @@ export default function AboutMe() {
         >
           <div className="gradient-border-card p-8 sm:p-12 lg:p-16 space-y-6">
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              I&apos;m driven by curiosity and a deep appreciation for the beauty in complexity. I love understanding how things work, which has led me to explore diverse fields — from full-stack development to cybersecurity and AI agents.
+              I&apos;m driven by curiosity and a deep appreciation for the beauty in complexity. I love understanding how things work, which has led me to explore diverse fields .. from full-stack development to cybersecurity and AI agents.
             </p>
             <br></br>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              I&apos;m a <strong className="text-[#7dff5a]">GSoC 2026 contributor</strong> working on the Liquid Galaxy (Google) project, where I&apos;m building &quot;Local AI with Gemma&quot; — an AI agent server enabling natural language control of a multi-screen globe setup.
+              I&apos;m a <strong className="text-[#7dff5a]">GSoC 2026 contributor</strong> working on the Liquid Galaxy (Google) project, where I&apos;m building &quot;Local AI with Gemma&quot; an AI agent server enabling natural language control of a multi-screen globe setup.
             </p>
             <br></br>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
@@ -52,7 +52,7 @@ export default function AboutMe() {
             </p>
             <br></br>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed pb-2">
-              I can also jam Wi-Fi signals or crack passwords without connecting to your network 😉 — ask me about it over on <a href="https://x.com/harsh30121" target="_blank" rel="noopener noreferrer" className="text-[#00f0ff] hover:underline">X</a>.
+              I can also jam Wi-Fi signals or crack passwords without connecting to your network 😉 ... ask me about it over on <a href="https://x.com/harsh30121" target="_blank" rel="noopener noreferrer" className="text-[#00f0ff] hover:underline">X</a>.
             </p>
             <br></br>
             <div className="pt-4 border-t border-white/[0.06] mt-4">
